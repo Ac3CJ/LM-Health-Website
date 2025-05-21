@@ -25,8 +25,8 @@ body {
 
 /* ===== Utility Classes ===== */
 .section {
-    padding: 100px 20px;
-    min-height: 100vh;
+    padding: 40px 20px 100px;
+    min-height: auto;
 }
 
 /* ===== Navigation Styles ===== */
@@ -133,8 +133,13 @@ body {
 .product-title {
     font-size: 4rem;
     text-align: center;
-    margin-bottom: 1rem;
     color: var(--text-color);
+}
+
+.product-name {
+    font-size: 2.25rem;
+    text-align: center;
+    color: var(--secondary-color);
 }
 
 .product-container {
@@ -150,8 +155,8 @@ body {
 
 .brace-container {
     position: relative;
-    width: 600px;
-    height: 600px;
+    width: 500px;
+    height: 500px;
     background: var(--primary-bg-color);
     border-radius: 50%;
     display: flex;
@@ -186,7 +191,7 @@ body {
 .module-item {
     position: absolute;
     opacity: 0;
-    animation: fadeIn 0.5s ease-out forwards;
+    /*animation: fadeIn 0.5s ease-out forwards;*/
     display: flex;
     align-items: center;
     transform-origin: right center;
@@ -225,6 +230,10 @@ body {
     color: var(--text-color);
 }
 
+.module-text.reveal {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
 /* Connecting Lines */
 .module-item::before {
     content: '';
@@ -235,9 +244,16 @@ body {
     top: 50%;
     left: -300px;
     z-index: -1;
-    animation: drawLine 0.5s ease-out forwards;
+    /*animation: drawLine 0.5s ease-out forwards;*/
 }
 
+.product-section.visible .module-item {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.product-section.visible .module-item::before {
+    animation: drawLine 0.5s ease-out forwards;
+}
 
 /* Animations */
 @keyframes fadeIn {
@@ -272,10 +288,6 @@ body {
 .module-item:nth-child(2) { left: 15%; top: 30%;}
 .module-item:nth-child(3) { left: 15%; top: 50%;}
 .module-item:nth-child(4) { left: 25%; top: 70%;}
-
-.module-text.reveal {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
 
 /* ===== Responsive Design ===== */
 @media (max-width: 768px) {

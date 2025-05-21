@@ -36,16 +36,40 @@ document.addEventListener('click', (e) => {
 
 // Intersection Observer for scroll animations
 const observerOptions = {
-    threshold: 0.1
+    threshold: 0.25
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+
+            if (entry.target.id === 'product') {
+                document.querySelectorAll('.module-item').forEach((item, index) => {
+                    // Item animations
+                    item.style.animation = `fadeIn 0.5s ease-out ${index * 0.5 + 0.5}s forwards`;
+                    
+                    // Line animations
+                    const line = item.querySelector('::before');
+                    item.querySelector('.module-text').classList.add('reveal');
+                    
+                    // Text reveal with delay
+                    setTimeout(() => {
+                        item.querySelector('.module-text').classList.add('reveal');
+                    }, index * 500 + 500);
+                });
+            }
         }
     });
 }, observerOptions);
+
+const style = document.createElement('style');
+style.textContent = `
+    .module-item::before {
+        animation: var(--line-animation, none);
+    }
+`;
+document.head.appendChild(style);
 
 // Observe all sections
 document.querySelectorAll('.section').forEach(section => {
