@@ -36,39 +36,48 @@ document.addEventListener('click', (e) => {
 
 // Intersection Observer for scroll animations
 const observerOptions = {
-    threshold: 0.25
+    threshold: 0.25,
+    rootMargin: '0px 0px -100px 0px' // Triggers when element enters viewport
 };
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-
-            if (entry.target.id === 'product') {
+            const section = entry.target;
+            
+            // Product Section
+            if (section.id === 'product') {
                 document.querySelectorAll('.module-item').forEach((item, index) => {
-                    // Item animations
                     item.style.animation = `fadeIn 0.5s ease-out ${index * 0.5 + 0.5}s forwards`;
-                    
-                    // Line animations
-                    const line = item.querySelector('::before');
-                    item.querySelector('.module-text').classList.add('reveal');
-                    
-                    // Text reveal with delay
                     setTimeout(() => {
                         item.querySelector('.module-text').classList.add('reveal');
                     }, index * 500 + 500);
                 });
-
-                const therapyContainer = document.querySelector('.therapy-container');
-                therapyContainer.classList.add('visible');
-
-                // Activate bluetooth section animation
-                const bluetoothContainer = document.querySelector('.bluetooth-container');
-                bluetoothContainer.classList.add('visible');
+            }
+            
+            // Therapy Section
+            if (section.id === 'therapy') {
+                section.classList.add('visible');
+            }
+            
+            // Bluetooth Section
+            if (section.id === 'bluetooth') {
+                section.classList.add('visible');
             }
         }
     });
 }, observerOptions);
+
+// Observe all animated sections
+const sectionsToObserve = [
+    document.getElementById('product'),
+    document.getElementById('therapy'),
+    document.getElementById('bluetooth')
+];
+
+sectionsToObserve.forEach(section => {
+    if (section) observer.observe(section);
+});
 
 const style = document.createElement('style');
 style.textContent = `
@@ -81,11 +90,4 @@ document.head.appendChild(style);
 // Observe all sections
 document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
-});
-
-// Activate text animations
-document.querySelectorAll('.module-item').forEach((item, index) => {
-    setTimeout(() => {
-        item.querySelector('.module-text').classList.add('reveal');
-    }, (index * 500) + 1400);
 });

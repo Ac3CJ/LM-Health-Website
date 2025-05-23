@@ -176,6 +176,17 @@ body {
     align-items: center;
 
     justify-content: space-between;
+
+    #product {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.6s ease-out;
+    }
+
+    #product.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .brace-container {
@@ -272,11 +283,11 @@ body {
     /*animation: drawLine 0.5s ease-out forwards;*/
 }
 
-.product-section.visible .module-item {
+#product.visible .module-item {
     animation: fadeIn 0.5s ease-out forwards;
 }
 
-.product-section.visible .module-item::before {
+#product.visible .module-item::before {
     animation: drawLine 0.5s ease-out forwards;
 }
 
