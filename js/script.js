@@ -58,6 +58,13 @@ const observer = new IntersectionObserver((entries) => {
                         item.querySelector('.module-text').classList.add('reveal');
                     }, index * 500 + 500);
                 });
+
+                const therapyContainer = document.querySelector('.therapy-container');
+                therapyContainer.classList.add('visible');
+
+                // Activate bluetooth section animation
+                const bluetoothContainer = document.querySelector('.bluetooth-container');
+                bluetoothContainer.classList.add('visible');
             }
         }
     });
