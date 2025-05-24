@@ -32,7 +32,7 @@ function createPieChart() {
                     enabled: false
                 },
                 datalabels: {
-                    color: '#000',
+                    color: '#fff',
                     font: {
                         size: 16,
                         weight: 'bold'

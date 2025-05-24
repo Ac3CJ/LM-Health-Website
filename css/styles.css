@@ -8,6 +8,7 @@
 
     --primary-bg-color: #fff;
     --secondary-bg-color: #122A48;
+    --accent-color: #FFA401;
 }
 
 /* ===== Base Styles ===== */
@@ -752,14 +753,14 @@ body {
 
 /* Team Section Styles */
 .team-section {
-    background: var(--secondary-bg-color);
+    background: #f8fafc;
     padding: 80px 20px;
     color: white;
     overflow-x: hidden;
 }
 
 .team-title {
-    color: #fff;
+    color: var(--text-color);
     font-size: 4rem;
 }
 
@@ -787,11 +788,12 @@ body {
 
 .team-member {
     flex: 0 0 280px;
-    background: rgba(255,255,255,0.1);
+    background: var(--secondary-bg-color);
     border-radius: 15px;
     padding: 20px;
     text-align: center;
     transition: transform 0.3s ease;
+    border: 3px solid var(--accent-color);
 }
 
 .team-member:hover {
@@ -804,7 +806,7 @@ body {
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto 20px;
-    border: 3px solid var(--primary-color);
+    border: 3px solid #000;
 }
 
 .member-portrait img {
@@ -833,4 +835,80 @@ body {
 
 .social-links a:hover {
     color: var(--secondary-color);
+}
+
+/* Footer Styles */
+.site-footer {
+    background: var(--secondary-bg-color);
+    color: white;
+    padding: 40px 20px 0;
+    margin-top: auto;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+.footer-section a:hover {
+    color: var(--secondary-color);
+}
+
+.social-icons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 15px;
+    font-size: 1.4rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .footer-section {
+        margin-bottom: 30px;
+    }
 }
