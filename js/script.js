@@ -1,3 +1,53 @@
+function createPieChart() {
+    const ctx = document.getElementById('mskPieChart').getContext('2d');
+    const total = 1.81; // billion
+    const target = (1.81 / 7.9) * 100;
+
+    // Register the plugin (only once)
+    Chart.register(ChartDataLabels);
+
+    const chart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['With MSK Conditions', 'Without MSK Conditions'],
+            datasets: [{
+                data: [target, 100 - target],
+                backgroundColor: ['#FFA401', '#024768'],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            animation: {
+                animateRotate: true,
+                animateScale: true,
+                duration: 2000
+            },
+            cutout: '0%',
+            plugins: {
+                legend: {
+                    display: false // Hide the legend
+                },
+                tooltip: {
+                    enabled: false
+                },
+                datalabels: {
+                    color: '#000',
+                    font: {
+                        size: 16,
+                        weight: 'bold'
+                    },
+                    formatter: (value, context) => {
+                        return context.chart.data.labels[context.dataIndex];
+                    },
+                    anchor: 'center',
+                    align: 'center',
+                },
+            }
+        },
+    });
+}
+
 // Navbar Shrink Effect
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
@@ -64,6 +114,13 @@ const observer = new IntersectionObserver((entries) => {
             if (section.id === 'bluetooth') {
                 section.classList.add('visible');
             }
+
+            // About Section
+            if (section.id === 'about') {
+                createPieChart();
+                // Stop observing after first trigger
+                observer.unobserve(section);
+            }
         }
     });
 }, observerOptions);
@@ -72,7 +129,8 @@ const observer = new IntersectionObserver((entries) => {
 const sectionsToObserve = [
     document.getElementById('product'),
     document.getElementById('therapy'),
-    document.getElementById('bluetooth')
+    document.getElementById('bluetooth'),
+    document.getElementById('about')
 ];
 
 sectionsToObserve.forEach(section => {

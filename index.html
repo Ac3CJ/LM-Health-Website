@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -123,7 +127,170 @@
             </div>
     </section>
 
-    <!-- Add more sections as needed -->
+    <section class="section" id="about">
+        <div class="stats-container">
+            <!-- Pie Chart -->
+            <div class="pie-chart-container">
+                <canvas id="mskPieChart"></canvas>
+            </div>
+            
+            <!-- Text Content -->
+            <div class="stats-content">
+                <h2 class="section-title">Growing Global Issue</h2>
+                <p class="stats-text">
+                    <span class="big-number">1.81 billion people</span> globally are affected by musculoskeletal (MSK) conditions, accounting for 
+                    <span class="big-number">20%</span> of the world's population.
+                </p>
+                <p class="stats-text">
+                    Nearly a quarter of MSK problems stem from osteoarthritis, with 
+                    <span class="big-number">365 million people</span> specifically suffering from Knee Osteoarthritis (KOA) in 2019 - 
+                    affecting nearly 1 in 20 people worldwide.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Company Section -->
+    <section class="section" id="company">
+        <div class="company-container">
+            <div class="about-company">
+                <h2 class="section-title">LM Health</h2>
+                <p class="company-description">
+                    Founded in 2025 at the University of Bath, LM Health is a pioneering medical technology company 
+                    developing modular healthcare solutions for pain relief and rehabilitation. Our innovative approach 
+                    combines user-centered design with sustainable medical technology. Our flagship product the <b>LM Health
+                    Modular Knee Brace</b> brings the needs of pain relief and rehabilitation into one device, providing care
+                    to patients anytime and anywhere.
+                </p>
+                
+                <div class="product-overview">
+                    <h2 style="font-size: 2rem;">Modular Knee Brace</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <h4>Multi-Therapy System</h4>
+                            <p>Interchangeable modules offering heat, infrared, and vibration therapy with smartphone-controlled intensity</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Smart Rehabilitation</h4>
+                            <p>Real-time data sharing with clinicians for remote monitoring and guided recovery programs</p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>Sustainable Design</h4>
+                            <p>Upgradable modular system reducing medical waste and long-term costs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mission-statement">
+                    <h3>Our Mission</h3>
+                    <blockquote>
+                        "To revolutionize musculoskeletal care through adaptive technology that empowers patients,
+                        supports clinicians, and promotes sustainable healthcare solutions."
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section team-section" id="team">
+        <h2 class="team-title">Meet Our Team</h2>
+        <div class="team-container">
+            <div class="team-row">
+                <div class="team-member">
+                    <div class="member-portrait">
+                        <img src="images/team/ishi-karsan.jpg" alt="Ishi Karsan">
+                    </div>
+                    <h3>Ishi Karsan</h3>
+                    <p class="role">Project Lead</p>
+                    <div class="social-links">
+                        <a href="#" class="email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="github"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-portrait">
+                        <img src="images/team/tom-bellamy.jpg" alt="Tom Bellamy">
+                    </div>
+                    <h3>Tom Bellamy</h3>
+                    <p class="role">Business Lead</p>
+                    <div class="social-links">
+                        <a href="#" class="email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="github"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-portrait">
+                        <img src="images/team/kate-elkington.jpg" alt="Kate Elkington">
+                    </div>
+                    <h3>Kate Elkington</h3>
+                    <p class="role">Finance Lead</p>
+                    <div class="social-links">
+                        <a href="#" class="email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="github"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-portrait">
+                        <img src="images/team/anna-payne.jpg" alt="Anna Payne">
+                    </div>
+                    <h3>Anna Payne</h3>
+                    <p class="role">Operations Lead</p>
+                    <div class="social-links">
+                        <a href="#" class="email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="github"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-portrait">
+                        <img src="images/team/conrad-gacay.jpg" alt="Conrad Gacay">
+                    </div>
+                    <h3>Conrad Gacay</h3>
+                    <p class="role">Product Lead</p>
+                    <div class="social-links">
+                        <a href="mailto:cjg75@bath.ac.uk" class="email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/conradgacay/" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Ac3CJ" class="github"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-portrait">
+                        <img src="images/team/jami.jpg" alt="Jamie Markiewicz">
+                    </div>
+                    <h3>Jamie Markiewicz</h3>
+                    <p class="role">Risk & Quality Lead</p>
+                    <div class="social-links">
+                        <a href="#" class="email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="github"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-portrait">
+                        <img src="images/team/ali-rashid.jpg" alt="Ali Rashid">
+                    </div>
+                    <h3>Ali Rashid</h3>
+                    <p class="role">Marketing Lead</p>
+                    <div class="social-links">
+                        <a href="#" class="email"><i class="fas fa-envelope"></i></a>
+                        <a href="#" class="linkedin"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="github"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Add remaining 5 team members following same structure -->
+            </div>
+        </div>
+    </section>
 
     <script src="js/script.js"></script>
 </body>
