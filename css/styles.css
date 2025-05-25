@@ -903,19 +903,47 @@ body {
     color: var(--secondary-color);
 }
 
+/* Update team section styles */
 @media (max-width: 768px) {
     .team-row {
-        /*animation: none !important;
-        transform: none !important;*/
-        animation: scroll 15s linear infinite running;
+        animation: none !important;
         flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+        transform: none !important;
     }
 
-    @keyframes scroll {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(calc(-50%)); }
+    .team-member {
+        flex: 0 0 calc(50% - 0.5rem);
+        transform: none !important;
+        animation: none !important;
     }
 
+    .team-member:nth-child(n+8) {
+        display: none;
+    }
+
+    /* Add touch interaction */
+    .team-member:active {
+        transform: scale(0.98) !important;
+    }
+
+    .member-portrait {
+        width: 30vw;
+        height: 30vw;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 20px;
+        border: 3px solid #000;
+    }
+}
+
+/* Only enable hover pause on desktop */
+@media (hover: hover) {
+    .team-container:hover .team-row {
+        animation-play-state: paused;
+    }
 }
 
 /* Footer Styles */
