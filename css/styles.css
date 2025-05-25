@@ -112,7 +112,7 @@ body {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: var(--nav-height);
+        top: 50px;
         left: 0;
         right: 0;
         background: #0d1d32;
@@ -324,7 +324,6 @@ body {
 .module-item:nth-child(2) { left: 15%; top: 33%;}
 .module-item:nth-child(3) { left: 15%; top: 52%;}
 .module-item:nth-child(4) { left: 25%; top: 70%;}
-
 
 @media (max-width: 768px) {
     .product-container {

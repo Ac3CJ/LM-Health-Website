@@ -149,3 +149,4 @@ document.head.appendChild(style);
 document.querySelectorAll('.section').forEach(section => {
     observer.observe(section);
 });
+
