@@ -930,8 +930,8 @@ body {
     }
 
     .member-portrait {
-        width: 30vw;
-        height: 30vw;
+        width: 25vw;
+        height: 25vw;
         border-radius: 50%;
         overflow: hidden;
         margin: 0 auto 20px;
